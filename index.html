@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" di>
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,6 +32,15 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
+        .total-assets {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: yellow;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -55,24 +64,28 @@
 <body>
     <div class="container">
         <h1>دارایی سهام من</h1>
+        
+        <!-- نمایش دارایی کل -->
+        <div class="total-assets">
+            دارایی کل: 0 ریال
+        </div>
+
+        <!-- جدول دارایی‌های سهام -->
         <table>
             <tr>
                 <th>نام سهم</th>
                 <th>تعداد</th>
-                <th>قیمت خرید (تومان)</th>
-                <th>ارزش فعلی (تومان)</th>
+                <th>قیمت (ریال)</th>
             </tr>
             <tr>
                 <td>فولاد</td>
-                <td>1000</td>
-                <td>5000</td>
-                <td>5200</td>
+                <td>0</td>
+                <td>0</td>
             </tr>
             <tr>
-                <td>شپنا</td>
-                <td>1500</td>
-                <td>7000</td>
-                <td>7300</td>
+                <td>شستا</td>
+                <td>0</td>
+                <td>0</td>
             </tr>
         </table>
     </div>
