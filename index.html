@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دارایی سهام | حمیدرضا میرحسینی | سرمایه‌گذاری و بورس</title>
 
-    <!-- ✅ متا تگ‌های بهینه برای سئو -->
-    <meta name="description" content="مشاهده دارایی سهام حمیدرضا میرحسینی، اطلاعات دقیق سرمایه‌گذاری و شماره کارت برای حمایت مالی. آخرین وضعیت دارایی و ارزش بازار.">
-    <meta name="keywords" content="سرمایه گذاری, بورس, دارایی, حمیدرضا میرحسینی, حمایت مالی, سهام">
+    <!-- متا تگ‌های بهینه برای سئو -->
+    <meta name="description" content="مشاهده دارایی سهام حمیدرضا میرحسینی و خریدهای امروز از بورس ایران. آخرین وضعیت دارایی‌ها و اطلاعات مالی دقیق.">
+    <meta name="keywords" content="سرمایه گذاری, بورس, خرید سهام, حمیدرضا میرحسینی, دارایی, بورس ایران">
     <meta name="author" content="حمیدرضا میرحسینی">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="دارایی سهام | حمیدرضا میرحسینی">
-    <meta property="og:description" content="مشاهده وضعیت سرمایه‌گذاری و سهام حمیدرضا میرحسینی همراه با اطلاعات مالی دقیق.">
+    <meta property="og:description" content="مشاهده وضعیت خریدهای امروز و دارایی سهام حمیدرضا میرحسینی">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fa_IR">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- ✅ افزایش سرعت بارگذاری فونت گوگل -->
+    <!-- اتصال به فونت گوگل برای نمایش بهینه متن فارسی -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
 
     <style>
         body {
@@ -48,7 +50,7 @@
         h1 {
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 50px;  /* فاصله بیشتر از بالای صفحه */
+            margin-top: 50px;
             font-size: 32px;
             font-weight: bold;
         }
@@ -62,7 +64,7 @@
             color: yellow;
             width: 100%;
         }
-        .bank-info {
+        .bank-info, .today-purchases {
             margin-top: 20px;
             padding: 15px;
             background: rgba(255, 255, 255, 0.2);
@@ -78,13 +80,59 @@
             margin-top: 10px;
             border-radius: 5px;
         }
+        .file-input {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
     </style>
 
-    <script async>
-        function copyToClipboard(id) {
-            var copyText = document.getElementById(id);
-            navigator.clipboard.writeText(copyText.innerText).then(() => {
-                alert("شماره کپی شد: " + copyText.innerText);
+    <script>
+        // تابع برای بارگذاری و پردازش فایل اکسل
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const data = e.target.result;
+                const workbook = XLSX.read(data, { type: 'binary' });
+
+                // انتخاب اولین شیت فایل اکسل
+                const sheetName = workbook.SheetNames[0];
+                const sheet = workbook.Sheets[sheetName];
+
+                // تبدیل داده‌ها به آرایه
+                const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+                // نمایش داده‌ها
+                displayData(jsonData);
+            };
+
+            reader.readAsBinaryString(file);
+        }
+
+        // تابع برای نمایش داده‌ها در صفحه
+        function displayData(data) {
+            const purchasesContainer = document.querySelector('.today-purchases');
+            purchasesContainer.innerHTML = ''; // پاک کردن محتوای قبلی
+
+            // ایجاد هدر
+            const headerRow = document.createElement('div');
+            headerRow.textContent = 'نام سهام | تعداد | قیمت';
+            headerRow.style.fontWeight = 'bold';
+            purchasesContainer.appendChild(headerRow);
+
+            // نمایش هر ردیف از داده‌ها
+            data.forEach((row, index) => {
+                if (index > 0) { // ردیف اول معمولاً برای هدر است
+                    const purchaseItem = document.createElement('div');
+                    purchaseItem.textContent = `${row[0]} | ${row[1]} | ${row[2]} تومان`;
+                    purchasesContainer.appendChild(purchaseItem);
+                }
             });
         }
     </script>
@@ -96,6 +144,15 @@
         <div class="bank-info">
             <p>شماره کارت ملت: <span id="card1">5022291509214878</span></p>
             <button class="copy-btn" onclick="copyToClipboard('card1')">کپی</button>
+        </div>
+
+        <!-- بخش بارگذاری فایل اکسل -->
+        <input type="file" class="file-input" accept=".xlsx, .xls" onchange="handleFileUpload(event)">
+
+        <!-- نمایش خریدهای امروز -->
+        <div class="today-purchases">
+            <h2>خریدهای امروز</h2>
+            <!-- داده‌های خریدها بعد از بارگذاری فایل نمایش داده می‌شود -->
         </div>
     </div>
 </body>
