@@ -21,9 +21,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- QRCode.js -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-
     <style>
         body {
             background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
@@ -75,7 +72,7 @@
             background: rgba(255, 255, 255, 0.3);
             font-weight: bold;
         }
-        .bank-info, .crypto-info {
+        .bank-info {
             margin-top: 20px;
             padding: 15px;
             background: rgba(255, 255, 255, 0.2);
@@ -90,12 +87,6 @@
             cursor: pointer;
             margin-top: 10px;
             border-radius: 5px;
-        }
-        .qrcode {
-            margin-top: 10px;
-            border: 1px solid #fff;
-            border-radius: 10px;
-            padding: 10px;
         }
     </style>
 
@@ -140,13 +131,7 @@
             document.getElementById("total-assets").innerText = `دارایی کل: ${total.toLocaleString()} ریال`;
         }
 
-        window.onload = function() {
-            updateAssets();
-
-            // تولید بارکد برای آدرس بیت‌کوین و اتریوم
-            QRCode.toCanvas(document.getElementById("btc-qrcode"), "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", { width: 150 });
-            QRCode.toCanvas(document.getElementById("eth-qrcode"), "0x60B50E35598152c717BA6153E4AE01a2D8953af5", { width: 150 });
-        };
+        window.onload = updateAssets;
     </script>
 </head>
 <body>
@@ -166,7 +151,6 @@
             <p>شماره کارت سامان: <span id="card2">6219861071652100</span></p>
             <button class="copy-btn" onclick="copyToClipboard('card2')">کپی</button>
         </div>
-
     </div>
 </body>
 </html>
