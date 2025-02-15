@@ -21,8 +21,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
-
     <style>
         body {
             background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
@@ -54,17 +52,7 @@
             font-size: 32px;
             font-weight: bold;
         }
-        .total-assets {
-            background: rgba(255, 255, 255, 0.3);
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 10px;
-            font-size: 22px;
-            font-weight: bold;
-            color: yellow;
-            width: 100%;
-        }
-        .bank-info, .today-purchases {
+        .bank-info {
             margin-top: 20px;
             padding: 15px;
             background: rgba(255, 255, 255, 0.2);
@@ -80,60 +68,19 @@
             margin-top: 10px;
             border-radius: 5px;
         }
-        .file-input {
-            margin-top: 20px;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            background-color: #333;
-            color: white;
-            cursor: pointer;
-        }
     </style>
 
     <script>
-        // تابع برای بارگذاری و پردازش فایل اکسل
-        function handleFileUpload(event) {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function (e) {
-                const data = e.target.result;
-                const workbook = XLSX.read(data, { type: 'binary' });
-
-                // انتخاب اولین شیت فایل اکسل
-                const sheetName = workbook.SheetNames[0];
-                const sheet = workbook.Sheets[sheetName];
-
-                // تبدیل داده‌ها به آرایه
-                const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-
-                // نمایش داده‌ها
-                displayData(jsonData);
-            };
-
-            reader.readAsBinaryString(file);
-        }
-
-        // تابع برای نمایش داده‌ها در صفحه
-        function displayData(data) {
-            const purchasesContainer = document.querySelector('.today-purchases');
-            purchasesContainer.innerHTML = ''; // پاک کردن محتوای قبلی
-
-            // ایجاد هدر
-            const headerRow = document.createElement('div');
-            headerRow.textContent = 'نام سهام | تعداد | قیمت';
-            headerRow.style.fontWeight = 'bold';
-            purchasesContainer.appendChild(headerRow);
-
-            // نمایش هر ردیف از داده‌ها
-            data.forEach((row, index) => {
-                if (index > 0) { // ردیف اول معمولاً برای هدر است
-                    const purchaseItem = document.createElement('div');
-                    purchaseItem.textContent = `${row[0]} | ${row[1]} | ${row[2]} تومان`;
-                    purchasesContainer.appendChild(purchaseItem);
-                }
-            });
+        // تابع کپی کردن به کلیپ‌بورد
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            alert("شماره کارت کپی شد!");
         }
     </script>
 </head>
@@ -144,15 +91,6 @@
         <div class="bank-info">
             <p>شماره کارت ملت: <span id="card1">5022291509214878</span></p>
             <button class="copy-btn" onclick="copyToClipboard('card1')">کپی</button>
-        </div>
-
-        <!-- بخش بارگذاری فایل اکسل -->
-        <input type="file" class="file-input" accept=".xlsx, .xls" onchange="handleFileUpload(event)">
-
-        <!-- نمایش خریدهای امروز -->
-        <div class="today-purchases">
-            <h2>خریدهای امروز</h2>
-            <!-- داده‌های خریدها بعد از بارگذاری فایل نمایش داده می‌شود -->
         </div>
     </div>
 </body>
