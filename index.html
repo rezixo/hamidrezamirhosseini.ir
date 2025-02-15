@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="نمایش دارایی سهام حمیدرضا میرحسینی همراه با اطلاعات دقیق و شماره کارت برای حمایت مالی">
-    <meta name="keywords" content="سهام, دارایی, سرمایه گذاری, بورس, حمیدرضا میرحسینی, حمایت مالی">
+    <meta name="keywords" content="سهام, دارایی, سرمایه گذاری, بورس, حمیدرضا میرحسینی, حمایت مالی, ارز دیجیتال">
     <meta name="author" content="حمیدرضا میرحسینی">
     <title>دارایی سهام - حمیدرضا میرحسینی</title>
     <style>
@@ -62,7 +62,7 @@
             background: rgba(255, 255, 255, 0.2);
             transition: 0.3s;
         }
-        .bank-info {
+        .bank-info, .crypto-info {
             margin-top: 20px;
             padding: 15px;
             background: rgba(255, 255, 255, 0.2);
@@ -82,7 +82,7 @@
         function copyToClipboard(id) {
             var copyText = document.getElementById(id);
             navigator.clipboard.writeText(copyText.innerText).then(() => {
-                alert("شماره کارت کپی شد: " + copyText.innerText);
+                alert("شماره کپی شد: " + copyText.innerText);
             });
         }
     </script>
@@ -134,6 +134,14 @@
             <button class="copy-btn" onclick="copyToClipboard('card1')">کپی</button>
             <p>شماره کارت سامان: <span id="card2">6219861071652100</span></p>
             <button class="copy-btn" onclick="copyToClipboard('card2')">کپی</button>
+        </div>
+
+        <div class="crypto-info">
+            <h2>حمایت مالی با ارز دیجیتال</h2>
+            <p>آدرس بیت‌کوین: <span id="btc">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</span></p>
+            <button class="copy-btn" onclick="copyToClipboard('btc')">کپی</button>
+            <p>آدرس اتریوم: <span id="eth">0x32Be343B94f860124dC4fEe278FDCBD38C102D88</span></p>
+            <button class="copy-btn" onclick="copyToClipboard('eth')">کپی</button>
         </div>
     </div>
 </body>
