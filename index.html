@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="نمایش دارایی سهام حمیدرضا میرحسینی همراه با اطلاعات دقیق و شماره کارت برای حمایت مالی">
+    <meta name="keywords" content="سهام, دارایی, سرمایه گذاری, بورس, حمیدرضا میرحسینی, حمایت مالی">
+    <meta name="author" content="حمیدرضا میرحسینی">
     <title>دارایی سهام - حمیدرضا میرحسینی</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
@@ -59,18 +62,39 @@
             background: rgba(255, 255, 255, 0.2);
             transition: 0.3s;
         }
+        .bank-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        .copy-btn {
+            background: yellow;
+            color: black;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
     </style>
+    <script>
+        function copyToClipboard(id) {
+            var copyText = document.getElementById(id);
+            navigator.clipboard.writeText(copyText.innerText).then(() => {
+                alert("شماره کارت کپی شد: " + copyText.innerText);
+            });
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>دارایی سهام من</h1>
         
-        <!-- نمایش دارایی کل -->
         <div class="total-assets">
             دارایی کل: 4,975,028 ریال
         </div>
 
-        <!-- جدول دارایی‌های سهام -->
         <table>
             <tr>
                 <th>نام سهم</th>
@@ -103,6 +127,14 @@
                 <td>2,757 ریال</td>
             </tr>        
         </table>
+
+        <div class="bank-info">
+            <h2>حمایت مالی</h2>
+            <p>شماره کارت ملت: <span id="card1">5022291509214878</span></p>
+            <button class="copy-btn" onclick="copyToClipboard('card1')">کپی</button>
+            <p>شماره کارت سامان: <span id="card2">6219861071652100</span></p>
+            <button class="copy-btn" onclick="copyToClipboard('card2')">کپی</button>
+        </div>
     </div>
 </body>
 </html>
