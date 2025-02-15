@@ -7,7 +7,7 @@
 
     <!-- ✅ متا تگ‌های بهینه برای سئو -->
     <meta name="description" content="مشاهده دارایی سهام حمیدرضا میرحسینی، اطلاعات دقیق سرمایه‌گذاری و شماره کارت برای حمایت مالی. آخرین وضعیت دارایی و ارزش بازار.">
-    <meta name="keywords" content="سرمایه گذاری, بورس, دارایی, حمیدرضا میرحسینی, حمایت مالی, سهام, ارز دیجیتال">
+    <meta name="keywords" content="سرمایه گذاری, بورس, دارایی, حمیدرضا میرحسینی, حمایت مالی, سهام">
     <meta name="author" content="حمیدرضا میرحسینی">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="دارایی سهام | حمیدرضا میرحسینی">
@@ -45,9 +45,12 @@
             align-items: center;
             justify-content: center;
         }
-        h1, h2 {
+        h1 {
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: 50px;  /* فاصله بیشتر از بالای صفحه */
+            font-size: 32px;
+            font-weight: bold;
         }
         .total-assets {
             background: rgba(255, 255, 255, 0.3);
@@ -58,19 +61,6 @@
             font-weight: bold;
             color: yellow;
             width: 100%;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            padding: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        th {
-            background: rgba(255, 255, 255, 0.3);
-            font-weight: bold;
         }
         .bank-info {
             margin-top: 20px;
@@ -97,59 +87,15 @@
                 alert("شماره کپی شد: " + copyText.innerText);
             });
         }
-
-        const stocks = [
-            { name: "ثابت اکسیژن", quantity: 85, price: 11882 },
-            { name: "ترنج ثابت", quantity: 98, price: 10211 },
-            { name: "اطمینان", quantity: 87, price: 11546 },
-            { name: "سپنتارود", quantity: 95, price: 10626 },
-            { name: "الکتروماد", quantity: 344, price: 2757 },
-        ];
-
-        function updateAssets() {
-            let total = 0;
-            let table = document.getElementById("stock-table");
-            table.innerHTML = `
-                <tr>
-                    <th>نام سهم</th>
-                    <th>تعداد</th>
-                    <th>قیمت (ریال)</th>
-                </tr>
-            `;
-
-            stocks.forEach(stock => {
-                total += stock.quantity * stock.price;
-                table.innerHTML += `
-                    <tr>
-                        <td>${stock.name}</td>
-                        <td>${stock.quantity}</td>
-                        <td>${stock.price.toLocaleString()} ریال</td>
-                    </tr>
-                `;
-            });
-
-            document.getElementById("total-assets").innerText = `دارایی کل: ${total.toLocaleString()} ریال`;
-        }
-
-        window.onload = updateAssets;
     </script>
 </head>
 <body>
     <div class="container">
-        <h1>دارایی سهام من</h1>
-
-        <div class="total-assets" id="total-assets">
-            در حال بارگذاری...
-        </div>
-
-        <table id="stock-table"></table>
+        <h1>حمایت مالی</h1>
 
         <div class="bank-info">
-            <h2>حمایت مالی</h2>
             <p>شماره کارت ملت: <span id="card1">5022291509214878</span></p>
             <button class="copy-btn" onclick="copyToClipboard('card1')">کپی</button>
-            <p>شماره کارت سامان: <span id="card2">6219861071652100</span></p>
-            <button class="copy-btn" onclick="copyToClipboard('card2')">کپی</button>
         </div>
     </div>
 </body>
