@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="نمایش دارایی سهام حمیدرضا میرحسینی همراه با اطلاعات دقیق و شماره کارت برای حمایت مالی">
-    <meta name="keywords" content="سهام, دارایی, سرمایه گذاری, بورس, حمیدرضا میرحسینی, حمایت مالی, ارز دیجیتال">
+    <title>دارایی سهام | حمیدرضا میرحسینی | سرمایه‌گذاری و بورس</title>
+
+    <!-- ✅ متا تگ‌های بهینه برای سئو -->
+    <meta name="description" content="مشاهده دارایی سهام حمیدرضا میرحسینی، اطلاعات دقیق سرمایه‌گذاری و شماره کارت برای حمایت مالی. آخرین وضعیت دارایی و ارزش بازار.">
+    <meta name="keywords" content="سرمایه گذاری, بورس, دارایی, حمیدرضا میرحسینی, حمایت مالی, سهام, ارز دیجیتال">
     <meta name="author" content="حمیدرضا میرحسینی">
-    <title>دارایی سهام - حمیدرضا میرحسینی</title>
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="دارایی سهام | حمیدرضا میرحسینی">
+    <meta property="og:description" content="مشاهده وضعیت سرمایه‌گذاری و سهام حمیدرضا میرحسینی همراه با اطلاعات مالی دقیق.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fa_IR">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- ✅ افزایش سرعت بارگذاری فونت گوگل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
-        
         body {
             background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             color: white;
@@ -28,21 +40,24 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(15px);
             max-width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+        h1, h2 {
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
         .total-assets {
             background: rgba(255, 255, 255, 0.3);
             padding: 15px;
-            margin-bottom: 20px;
+            margin: 20px 0;
             border-radius: 10px;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
             color: yellow;
+            width: 100%;
         }
         table {
             width: 100%;
@@ -56,17 +71,13 @@
         th {
             background: rgba(255, 255, 255, 0.3);
             font-weight: bold;
-            text-transform: uppercase;
-        }
-        tr:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transition: 0.3s;
         }
         .bank-info, .crypto-info {
             margin-top: 20px;
             padding: 15px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
+            width: 100%;
         }
         .copy-btn {
             background: yellow;
@@ -78,55 +89,60 @@
             border-radius: 5px;
         }
     </style>
-    <script>
+
+    <script async>
         function copyToClipboard(id) {
             var copyText = document.getElementById(id);
             navigator.clipboard.writeText(copyText.innerText).then(() => {
                 alert("شماره کپی شد: " + copyText.innerText);
             });
         }
+
+        const stocks = [
+            { name: "ثابت اکسیژن", quantity: 85, price: 11882 },
+            { name: "ترنج ثابت", quantity: 98, price: 10211 },
+            { name: "اطمینان", quantity: 87, price: 11546 },
+            { name: "سپنتارود", quantity: 95, price: 10626 },
+            { name: "الکتروماد", quantity: 344, price: 2757 },
+        ];
+
+        function updateAssets() {
+            let total = 0;
+            let table = document.getElementById("stock-table");
+            table.innerHTML = `
+                <tr>
+                    <th>نام سهم</th>
+                    <th>تعداد</th>
+                    <th>قیمت (ریال)</th>
+                </tr>
+            `;
+
+            stocks.forEach(stock => {
+                total += stock.quantity * stock.price;
+                table.innerHTML += `
+                    <tr>
+                        <td>${stock.name}</td>
+                        <td>${stock.quantity}</td>
+                        <td>${stock.price.toLocaleString()} ریال</td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById("total-assets").innerText = `دارایی کل: ${total.toLocaleString()} ریال`;
+        }
+
+        window.onload = updateAssets;
     </script>
 </head>
 <body>
     <div class="container">
         <h1>دارایی سهام من</h1>
-        
-        <div class="total-assets">
-            دارایی کل: 4,975,028 ریال
+
+        <div class="total-assets" id="total-assets">
+            در حال بارگذاری...
         </div>
 
-        <table>
-            <tr>
-                <th>نام سهم</th>
-                <th>تعداد</th>
-                <th>قیمت (ریال)</th>
-            </tr>
-            <tr>
-                <td>ثابت اکسیژن</td>
-                <td>85</td>
-                <td>11,882 ریال</td>
-            </tr>
-            <tr>
-                <td>ترنج ثابت</td>
-                <td>98</td>
-                <td>10,211 ریال</td>
-            </tr>
-            <tr>
-                <td>اطمینان</td>
-                <td>87</td>
-                <td>11,546 ریال</td>
-            </tr>
-            <tr>
-                <td>سپنتارود</td>
-                <td>95</td>
-                <td>10,626 ریال</td>
-            </tr>  
-            <tr>
-                <td>الکتروماد</td>
-                <td>344</td>
-                <td>2,757 ریال</td>
-            </tr>        
-        </table>
+        <table id="stock-table"></table>
 
         <div class="bank-info">
             <h2>حمایت مالی</h2>
