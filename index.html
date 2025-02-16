@@ -1,101 +1,142 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خرید سهام شرکت‌های بورسی</title>
+    <title>سایت خرید و فروش، رهن و اجاره املاک</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             direction: rtl;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
             text-align: center;
         }
-        th {
-            background-color: #f2f2f2;
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
         }
-        input[type="number"] {
-            width: 60px;
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
         }
-        button {
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .property-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .property-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            width: calc(33.333% - 20px);
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+        .property-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ddd;
+        }
+        .search-bar button {
             padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
+            background-color: #333;
+            color: #fff;
             border: none;
             cursor: pointer;
         }
-        button:hover {
-            background-color: #45a049;
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <h1>خرید سهام شرکت‌های بورسی</h1>
-    <form id="purchaseForm" action="https://your-payment-gateway.com" method="POST">
-        <table>
-            <thead>
-                <tr>
-                    <th>ردیف</th>
-                    <th>نام شرکت</th>
-                    <th>وضعیت شرکت</th>
-                    <th>تعداد سهام</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>نفت پارس</td>
-                    <td>پذیرش در بورس</td>
-                    <td><input type="number" name="shares_1" min="0" value="0"></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>سیمان تهران</td>
-                    <td>پذیرش در بورس</td>
-                    <td><input type="number" name="shares_2" min="0" value="0"></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>سیمان شمال</td>
-                    <td>پذیرش در بورس</td>
-                    <td><input type="number" name="shares_3" min="0" value="0"></td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>قند نیشابور</td>
-                    <td>پذیرش در بورس</td>
-                    <td><input type="number" name="shares_4" min="0" value="0"></td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>شیشه قزوین</td>
-                    <td>بازار پایه (لغو پذیرش یا انحلال)</td>
-                    <td><input type="number" name="shares_5" min="0" value="0"></td>
-                </tr>
-                <!-- سایر شرکت‌ها را به همین شکل اضافه کنید -->
-            </tbody>
-        </table>
-        <button type="submit">پرداخت</button>
-    </form>
+    <!-- هدر سایت -->
+    <header>
+        <h1>سایت خرید و فروش، رهن و اجاره املاک</h1>
+    </header>
 
-    <script>
-        document.getElementById('purchaseForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // در اینجا می‌توانید اعتبارسنجی فرم را انجام دهید
-            // سپس کاربر را به درگاه پرداخت هدایت کنید
-            window.location.href = 'https://your-payment-gateway.com';
-        });
-    </script>
+    <!-- منوی ناوبری -->
+    <nav>
+        <a href="#home">صفحه اصلی</a>
+        <a href="#properties">لیست املاک</a>
+        <a href="#contact">تماس با ما</a>
+        <a href="#about">درباره ما</a>
+    </nav>
+
+    <!-- بخش اصلی سایت -->
+    <div class="container">
+        <!-- جستجو -->
+        <div class="search-bar">
+            <input type="text" placeholder="جستجوی ملک...">
+            <button>جستجو</button>
+        </div>
+
+        <!-- لیست املاک -->
+        <div class="property-list">
+            <!-- ملک ۱ -->
+            <div class="property-card">
+                <img src="property1.jpg" alt="ملک ۱">
+                <h3>آپارتمان ۱۲۰ متری در تهران</h3>
+                <p>قیمت: ۵ میلیارد تومان</p>
+                <p>موقعیت: تهران، منطقه ۱</p>
+                <button>مشاهده جزئیات</button>
+            </div>
+
+            <!-- ملک ۲ -->
+            <div class="property-card">
+                <img src="property2.jpg" alt="ملک ۲">
+                <h3>ویلای ۲۰۰ متری در شمال</h3>
+                <p>قیمت: ۱۰ میلیارد تومان</p>
+                <p>موقعیت: نوشهر، جنگلی</p>
+                <button>مشاهده جزئیات</button>
+            </div>
+
+            <!-- ملک ۳ -->
+            <div class="property-card">
+                <img src="property3.jpg" alt="ملک ۳">
+                <h3>مغازه ۵۰ متری در اصفهان</h3>
+                <p>قیمت: ۲ میلیارد تومان</p>
+                <p>موقعیت: اصفهان، خیابان اصلی</p>
+                <button>مشاهده جزئیات</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- فوتر سایت -->
+    <footer>
+        <p>تمامی حقوق محفوظ است © ۱۴۰۲</p>
+    </footer>
 
 </body>
 </html>
