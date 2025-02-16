@@ -52,7 +52,7 @@
             font-size: 32px;
             font-weight: bold;
         }
-        .bank-info {
+        .bank-info, .assets-info {
             margin-top: 20px;
             padding: 15px;
             background: rgba(255, 255, 255, 0.2);
@@ -68,6 +68,27 @@
             margin-top: 10px;
             border-radius: 5px;
         }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid white;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #3e3e3e;
+        }
+        .total-assets {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: yellow;
+        }
     </style>
 
     <script>
@@ -82,11 +103,57 @@
             document.body.removeChild(textArea);
             alert("شماره کارت کپی شد!");
         }
+
+        // محاسبه جمع کل دارایی
+        function calculateTotalAssets() {
+            const assets = [85, 98, 87, 344, 95];
+            const total = assets.reduce((sum, asset) => sum + asset, 0);
+            document.getElementById("total-assets").textContent = "جمع کل دارایی: " + total;
+        }
+
+        // فراخوانی تابع محاسبه جمع کل دارایی
+        window.onload = calculateTotalAssets;
     </script>
 </head>
 <body>
     <div class="container">
-        <h1>حمایت مالی</h1>
+        <div class="assets-info">
+            <h2>وضعیت دارایی سهام</h2>
+            <table>
+                <tr>
+                    <th>نام نماد</th>
+                    <th>تاریخ آخرین تراکنش/رویداد</th>
+                    <th>تعداد دارایی</th>
+                </tr>
+                <tr>
+                    <td>ثابت اکسیژن</td>
+                    <td>14031127</td>
+                    <td>85</td>
+                </tr>
+                <tr>
+                    <td>ترنج ثابت</td>
+                    <td>14031127</td>
+                    <td>98</td>
+                </tr>
+                <tr>
+                    <td>اطمینان</td>
+                    <td>14031127</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td>الکتروماد</td>
+                    <td>14031127</td>
+                    <td>344</td>
+                </tr>
+                <tr>
+                    <td>سپنتارود</td>
+                    <td>14031127</td>
+                    <td>95</td>
+                </tr>
+            </table>
+
+            <div id="total-assets" class="total-assets"></div>
+        </div>
 
         <div class="bank-info">
             <p>شماره کارت بانک پاسارگاد: <span id="card1">5022291509214878</span></p>
