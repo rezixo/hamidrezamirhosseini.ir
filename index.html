@@ -3,175 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سایت خرید و فروش، رهن و اجاره املاک</title>
+    <meta name="description" content="سایت خرید و فروش، رهن و اجاره املاک در سراسر ایران. بهترین املاک با قیمت مناسب.">
+    <meta name="keywords" content="خرید ملک, فروش ملک, رهن و اجاره, املاک, آپارتمان, ویلایی, مغازه">
+    <meta name="author" content="سایت املاک">
+    <title>سایت خرید و فروش، رهن و اجاره املاک | بهترین املاک با قیمت مناسب</title>
     <style>
+        /* فونت فارسی */
+        @font-face {
+            font-family: 'Vazir';
+            src: url('fonts/Vazir.woff2') format('woff2'),
+                 url('fonts/Vazir.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Vazir', Arial, sans-serif;
             direction: rtl;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9fafb;
+            color: #333;
         }
+
         header {
-            background-color: #333;
+            background: linear-gradient(135deg, #4a90e2, #2c3e50);
             color: #fff;
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         nav {
-            background-color: #444;
+            background-color: #2c3e50;
             padding: 10px;
             text-align: center;
         }
+
         nav a {
             color: #fff;
             margin: 0 15px;
             text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .property-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .property-card {
-            border: 1px solid #ddd;
-            padding: 15px;
-            width: calc(33.333% - 20px);
-            box-sizing: border-box;
-            background-color: #f9f9f9;
-        }
-        .property-card img {
-            max-width: 100%;
-            height: auto;
-        }
-        .search-bar {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .search-bar input {
-            padding: 10px;
-            width: 300px;
-            border: 1px solid #ddd;
-        }
-        .search-bar button {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
-        }
-        .pagination {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .pagination a {
-            margin: 0 5px;
-            text-decoration: none;
-            color: #333;
-        }
-        .pagination a.active {
             font-weight: bold;
         }
-    </style>
-</head>
-<body>
 
-    <!-- هدر سایت -->
-    <header>
-        <h1>سایت خرید و فروش، رهن و اجاره املاک</h1>
-    </header>
-
-    <!-- منوی ناوبری -->
-    <nav>
-        <a href="#home">صفحه اصلی</a>
-        <a href="#properties">لیست املاک</a>
-        <a href="#contact">تماس با ما</a>
-        <a href="#about">درباره ما</a>
-        <a href="#login">ورود / ثبت نام</a>
-    </nav>
-
-    <!-- بخش اصلی سایت -->
-    <div class="container">
-        <!-- جستجو -->
-        <div class="search-bar">
-            <input type="text" placeholder="جستجوی ملک...">
-            <button>جستجو</button>
-        </div>
-
-        <!-- فیلترهای پیشرفته -->
-        <div class="filters">
-            <select>
-                <option value="">نوع ملک</option>
-                <option value="apartment">آپارتمان</option>
-                <option value="villa">ویلایی</option>
-                <option value="shop">مغازه</option>
-            </select>
-            <input type="number" placeholder="حداقل قیمت">
-            <input type="number" placeholder="حداکثر قیمت">
-            <button>اعمال فیلتر</button>
-        </div>
-
-        <!-- لیست املاک -->
-        <div class="property-list">
-            <!-- ملک ۱ -->
-            <div class="property-card">
-                <img src="property1.jpg" alt="ملک ۱">
-                <h3>آپارتمان ۱۲۰ متری در تهران</h3>
-                <p>قیمت: ۵ میلیارد تومان</p>
-                <p>موقعیت: تهران، منطقه ۱</p>
-                <button onclick="window.location.href='property1.html'">مشاهده جزئیات</button>
-            </div>
-
-            <!-- ملک ۲ -->
-            <div class="property-card">
-                <img src="property2.jpg" alt="ملک ۲">
-                <h3>ویلای ۲۰۰ متری در شمال</h3>
-                <p>قیمت: ۱۰ میلیارد تومان</p>
-                <p>موقعیت: نوشهر، جنگلی</p>
-                <button onclick="window.location.href='property2.html'">مشاهده جزئیات</button>
-            </div>
-
-            <!-- ملک ۳ -->
-            <div class="property-card">
-                <img src="property3.jpg" alt="ملک ۳">
-                <h3>مغازه ۵۰ متری در اصفهان</h3>
-                <p>قیمت: ۲ میلیارد تومان</p>
-                <p>موقعیت: اصفهان، خیابان اصلی</p>
-                <button onclick="window.location.href='property3.html'">مشاهده جزئیات</button>
-            </div>
-        </div>
-
-        <!-- صفحه‌بندی -->
-        <div class="pagination">
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-        </div>
-    </div>
-
-    <!-- فوتر سایت -->
-    <footer>
-        <p>تمامی حقوق محفوظ است © ۱۴۰۲</p>
-    </footer>
-
-</body>
-</html>
+        nav a:hover {
+            color: #4a90
