@@ -48,4 +48,196 @@
         }
 
         nav a:hover {
-            color: #4a90
+            color: #4a90e2;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .property-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .property-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            width: calc(33.333% - 20px);
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background-color: #357abd;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #4a90e2;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .pagination a.active {
+            background-color: #4a90e2;
+            color: #fff;
+        }
+
+        .pagination a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* رسپانسیو بودن */
+        @media (max-width: 768px) {
+            .property-card {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .property-card {
+                width: 100%;
+            }
+
+            .search-bar input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .search-bar button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- هدر سایت -->
+    <header>
+        <h1>سایت خرید و فروش، رهن و اجاره املاک</h1>
+        <p>بهترین املاک با قیمت مناسب در سراسر ایران</p>
+    </header>
+
+    <!-- منوی ناوبری -->
+    <nav>
+        <a href="#home" title="صفحه اصلی">صفحه اصلی</a>
+        <a href="#properties" title="لیست املاک">لیست املاک</a>
+        <a href="#contact" title="تماس با ما">تماس با ما</a>
+        <a href="#about" title="درباره ما">درباره ما</a>
+        <a href="#login" title="ورود / ثبت نام">ورود / ثبت نام</a>
+    </nav>
+
+    <!-- بخش اصلی سایت -->
+    <main class="container">
+        <!-- جستجو -->
+        <section class="search-bar">
+            <input type="text" placeholder="جستجوی ملک..." title="جستجوی ملک">
+            <button>جستجو</button>
+        </section>
+
+        <!-- لیست املاک -->
+        <section class="property-list">
+            <!-- ملک ۱ -->
+            <article class="property-card">
+                <img src="property1.jpg" alt="آپارتمان ۱۲۰ متری در تهران">
+                <h2>آپارتمان ۱۲۰ متری در تهران</h2>
+                <p>قیمت: ۵ میلیارد تومان</p>
+                <p>موقعیت: تهران، منطقه ۱</p>
+                <button onclick="window.location.href='property1.html'">مشاهده جزئیات</button>
+            </article>
+
+            <!-- ملک ۲ -->
+            <article class="property-card">
+                <img src="property2.jpg" alt="ویلای ۲۰۰ متری در شمال">
+                <h2>ویلای ۲۰۰ متری در شمال</h2>
+                <p>قیمت: ۱۰ میلیارد تومان</p>
+                <p>موقعیت: نوشهر، جنگلی</p>
+                <button onclick="window.location.href='property2.html'">مشاهده جزئیات</button>
+            </article>
+
+            <!-- ملک ۳ -->
+            <article class="property-card">
+                <img src="property3.jpg" alt="مغازه ۵۰ متری در اصفهان">
+                <h2>مغازه ۵۰ متری در اصفهان</h2>
+                <p>قیمت: ۲ میلیارد تومان</p>
+                <p>موقعیت: اصفهان، خیابان اصلی</p>
+                <button onclick="window.location.href='property3.html'">مشاهده جزئیات</button>
+            </article>
+        </section>
+
+        <!-- صفحه‌بندی -->
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+        </div>
+    </main>
+
+    <!-- فوتر سایت -->
+    <footer>
+        <p>تمامی حقوق محفوظ است © ۱۴۰۲ | سایت خرید و فروش، رهن و اجاره املاک</p>
+    </footer>
+
+</body>
+</html>
