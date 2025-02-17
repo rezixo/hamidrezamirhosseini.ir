@@ -167,6 +167,33 @@
                 width: 100%;
             }
         }
+
+        /* استایل‌های جدید */
+        .login-section, .advanced-search, .reviews, .chat-box, .payment, .notifications, .compare, .report {
+            margin-bottom: 40px;
+        }
+
+        .login-section form, .advanced-search form, .reviews form, .chat-box input, .payment form, .notifications form, .report form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        .chat-messages {
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -188,10 +215,31 @@
 
     <!-- بخش اصلی سایت -->
     <main class="container">
-        <!-- جستجو -->
-        <section class="search-bar">
-            <input type="text" placeholder="جستجوی ملک..." title="جستجوی ملک">
-            <button>جستجو</button>
+        <!-- سیستم ثبت‌نام و ورود -->
+        <section id="login" class="login-section">
+            <h2>ورود / ثبت‌نام</h2>
+            <form>
+                <input type="email" placeholder="ایمیل" required>
+                <input type="password" placeholder="رمز عبور" required>
+                <button type="submit">ورود</button>
+                <button type="button" onclick="window.location.href='register.html'">ثبت‌نام</button>
+            </form>
+        </section>
+
+        <!-- جستجوی پیشرفته -->
+        <section class="advanced-search">
+            <h2>جستجوی پیشرفته</h2>
+            <form>
+                <select>
+                    <option value="apartment">آپارتمان</option>
+                    <option value="villa">ویلایی</option>
+                    <option value="shop">مغازه</option>
+                </select>
+                <input type="number" placeholder="حداقل قیمت (تومان)">
+                <input type="number" placeholder="حداکثر قیمت (تومان)">
+                <input type="number" placeholder="حداقل متراژ (متر مربع)">
+                <button type="submit">جستجو</button>
+            </form>
         </section>
 
         <!-- لیست املاک -->
@@ -222,6 +270,91 @@
                 <p>موقعیت: اصفهان، خیابان اصلی</p>
                 <button onclick="window.location.href='property3.html'">مشاهده جزئیات</button>
             </article>
+        </section>
+
+        <!-- نقشه -->
+        <div id="map" style="height: 300px; width: 100%;"></div>
+        <script>
+            function initMap() {
+                const location = { lat: 35.6892, lng: 51.3890 }; // مختصات تهران
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 12,
+                    center: location,
+                });
+                new google.maps.Marker({
+                    position: location,
+                    map: map,
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+        <!-- نظرات کاربران -->
+        <section class="reviews">
+            <h2>نظرات کاربران</h2>
+            <div class="review">
+                <p><strong>کاربر ۱:</strong> ملک بسیار خوبی بود، قیمت مناسب داشت.</p>
+                <p>امتیاز: ⭐⭐⭐⭐</p>
+            </div>
+            <div class="review">
+                <p><strong>کاربر ۲:</strong> موقعیت عالی، اما قیمت کمی بالا بود.</p>
+                <p>امتیاز: ⭐⭐⭐</p>
+            </div>
+            <form>
+                <textarea placeholder="نظر خود را بنویسید..." required></textarea>
+                <input type="number" min="1" max="5" placeholder="امتیاز (۱ تا ۵)" required>
+                <button type="submit">ارسال نظر</button>
+            </form>
+        </section>
+
+        <!-- چت آنلاین -->
+        <div class="chat-box">
+            <div class="chat-header">
+                <h3>چت آنلاین</h3>
+            </div>
+            <div class="chat-messages">
+                <p><strong>کاربر ۱:</strong> سلام، این ملک هنوز موجوده؟</p>
+                <p><strong>فروشنده:</strong> بله، هنوز موجود است.</p>
+            </div>
+            <input type="text" placeholder="پیام خود را بنویسید...">
+            <button>ارسال</button>
+        </div>
+
+        <!-- پرداخت آنلاین -->
+        <section class="payment">
+            <h2>پرداخت آنلاین</h2>
+            <form>
+                <input type="text" placeholder="نام و نام خانوادگی" required>
+                <input type="number" placeholder="شماره کارت" required>
+                <input type="number" placeholder="CVV2" required>
+                <button type="submit">پرداخت</button>
+            </form>
+        </section>
+
+        <!-- اطلاع‌رسانی -->
+        <section class="notifications">
+            <h2>اطلاع‌رسانی</h2>
+            <form>
+                <input type="email" placeholder="ایمیل خود را وارد کنید" required>
+                <button type="submit">عضویت در اطلاع‌رسانی</button>
+            </form>
+        </section>
+
+        <!-- مقایسه املاک -->
+        <section class="compare">
+            <h2>مقایسه املاک</h2>
+            <div class="compare-list">
+                <button>افزودن به مقایسه</button>
+            </div>
+        </section>
+
+        <!-- گزارش مشکل -->
+        <section class="report">
+            <h2>گزارش مشکل</h2>
+            <form>
+                <textarea placeholder="مشکل خود را بنویسید..." required></textarea>
+                <button type="submit">ارسال گزارش</button>
+            </form>
         </section>
 
         <!-- صفحه‌بندی -->
