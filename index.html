@@ -77,6 +77,18 @@
             padding: 10px 0;
             margin-top: 20px;
         }
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .pagination a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #333;
+        }
+        .pagination a.active {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -92,6 +104,7 @@
         <a href="#properties">لیست املاک</a>
         <a href="#contact">تماس با ما</a>
         <a href="#about">درباره ما</a>
+        <a href="#login">ورود / ثبت نام</a>
     </nav>
 
     <!-- بخش اصلی سایت -->
@@ -102,6 +115,19 @@
             <button>جستجو</button>
         </div>
 
+        <!-- فیلترهای پیشرفته -->
+        <div class="filters">
+            <select>
+                <option value="">نوع ملک</option>
+                <option value="apartment">آپارتمان</option>
+                <option value="villa">ویلایی</option>
+                <option value="shop">مغازه</option>
+            </select>
+            <input type="number" placeholder="حداقل قیمت">
+            <input type="number" placeholder="حداکثر قیمت">
+            <button>اعمال فیلتر</button>
+        </div>
+
         <!-- لیست املاک -->
         <div class="property-list">
             <!-- ملک ۱ -->
@@ -110,7 +136,7 @@
                 <h3>آپارتمان ۱۲۰ متری در تهران</h3>
                 <p>قیمت: ۵ میلیارد تومان</p>
                 <p>موقعیت: تهران، منطقه ۱</p>
-                <button>مشاهده جزئیات</button>
+                <button onclick="window.location.href='property1.html'">مشاهده جزئیات</button>
             </div>
 
             <!-- ملک ۲ -->
@@ -119,7 +145,7 @@
                 <h3>ویلای ۲۰۰ متری در شمال</h3>
                 <p>قیمت: ۱۰ میلیارد تومان</p>
                 <p>موقعیت: نوشهر، جنگلی</p>
-                <button>مشاهده جزئیات</button>
+                <button onclick="window.location.href='property2.html'">مشاهده جزئیات</button>
             </div>
 
             <!-- ملک ۳ -->
@@ -128,8 +154,17 @@
                 <h3>مغازه ۵۰ متری در اصفهان</h3>
                 <p>قیمت: ۲ میلیارد تومان</p>
                 <p>موقعیت: اصفهان، خیابان اصلی</p>
-                <button>مشاهده جزئیات</button>
+                <button onclick="window.location.href='property3.html'">مشاهده جزئیات</button>
             </div>
+        </div>
+
+        <!-- صفحه‌بندی -->
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
         </div>
     </div>
 
