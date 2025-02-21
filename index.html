@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>چت‌بات</title>
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById("userInput").value;
+            const response = await fetch("/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ message: userInput })
+            });
+            const data = await response.json();
+            document.getElementById("chatArea").innerHTML += "<p>" + data.reply + "</p>";
+        }
+    </script>
+</head>
+<body>
+    <div id="chatArea"></div>
+    <input type="text" id="userInput" placeholder="پیام خود را وارد کنید">
+    <button onclick="sendMessage()">ارسال</button>
+</body>
+</html>
