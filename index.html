@@ -2,25 +2,104 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>چت‌بات</title>
-    <script>
-        async function sendMessage() {
-            const userInput = document.getElementById("userInput").value;
-            const response = await fetch("/chat", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ message: userInput })
-            });
-            const data = await response.json();
-            document.getElementById("chatArea").innerHTML += "<p>" + data.reply + "</p>";
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Collection | کالکشن لاکچری</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            text-align: center;
         }
-    </script>
+        header {
+            background-color: #000;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .product {
+            background: white;
+            margin: 15px;
+            padding: 10px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .buy-btn {
+            display: block;
+            text-decoration: none;
+            background: black;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px auto;
+            width: 80%;
+        }
+    </style>
 </head>
 <body>
-    <div id="chatArea"></div>
-    <input type="text" id="userInput" placeholder="پیام خود را وارد کنید">
-    <button onclick="sendMessage()">ارسال</button>
+
+<header>🖤 Luxury Collection | کالکشن لاکچری 🖤</header>
+
+<div class="container">
+    <div class="product">
+        <img src="https://media.neimanmarcus.com/f_auto,q_auto:low,ar_4:5,c_fill,dpr_2.0,w_790/01/nm_1718360_100106_m" alt="Luxury Bag">
+        <h3>کیف دستی لوکس</h3>
+        <a href="#" class="buy-btn">مشاهده و خرید</a>
+    </div>
+
+    <div class="product">
+        <img src="https://www.cartier.com/dw/image/v2/BGTJ_PRD/on/demandware.static/-/Sites-cartier-master/default/dw1fe1d63b/images/large/e39f7697923d53ec8edcd3d44844a8a5.png" alt="Cartier Jewelry">
+        <h3>جواهرات کارتیر</h3>
+        <a href="#" class="buy-btn">مشاهده و خرید</a>
+    </div>
+
+    <div class="product">
+        <img src="https://product-images.therealreal.com/CRT115641_1_enlarged.jpg" alt="Elegant Ring">
+        <h3>حلقه لوکس</h3>
+        <a href="#" class="buy-btn">مشاهده و خرید</a>
+    </div>
+
+    <div class="product">
+        <img src="https://madisonavenuecouture.com/cdn/shop/files/TR-OT-240906-2-01.jpg" alt="Luxury Bag 2">
+        <h3>کیف هرمس</h3>
+        <a href="#" class="buy-btn">مشاهده و خرید</a>
+    </div>
+
+    <div class="product">
+        <img src="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/extension-ad-woman-LqjcsFEhbJlM9i2o6BHJcQCY82QMZ2" alt="Fashion Ad">
+        <h3>تبلیغات مد و فشن</h3>
+        <a href="#" class="buy-btn">مشاهده بیشتر</a>
+    </div>
+
+    <div class="product">
+        <img src="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/extension-ad-screenshot-NkiQQSov3gOHQFNYxC1MSGyCw96mMr" alt="Luxury Fashion">
+        <h3>کمپین تبلیغاتی مد</h3>
+        <a href="#" class="buy-btn">اطلاعات بیشتر</a>
+    </div>
+
+    <div class="product">
+        <img src="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/Share%20Banner/share_bag_1-KdhANsVytZI9J4h3LExhK6K3z7HFlX.png" alt="Share Banner">
+        <h3>اشتراک‌گذاری استایل</h3>
+        <a href="#" class="buy-btn">مشاهده جزئیات</a>
+    </div>
+</div>
+
 </body>
 </html>
