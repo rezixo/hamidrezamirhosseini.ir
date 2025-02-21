@@ -51,6 +51,29 @@
             margin: 10px auto;
             width: 80%;
         }
+        .email-form {
+            background: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .email-form input, .email-form textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .email-form button {
+            background: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -61,44 +84,25 @@
     <div class="product">
         <img src="https://media.neimanmarcus.com/f_auto,q_auto:low,ar_4:5,c_fill,dpr_2.0,w_790/01/nm_1718360_100106_m" alt="Luxury Bag">
         <h3>کیف دستی لوکس</h3>
-        <a href="#" class="buy-btn">مشاهده و خرید</a>
+        <a href="https://www.neimanmarcus.com" class="buy-btn" target="_blank">مشاهده و خرید</a>
     </div>
-
+    
     <div class="product">
         <img src="https://www.cartier.com/dw/image/v2/BGTJ_PRD/on/demandware.static/-/Sites-cartier-master/default/dw1fe1d63b/images/large/e39f7697923d53ec8edcd3d44844a8a5.png" alt="Cartier Jewelry">
         <h3>جواهرات کارتیر</h3>
-        <a href="#" class="buy-btn">مشاهده و خرید</a>
+        <a href="https://www.cartier.com" class="buy-btn" target="_blank">مشاهده و خرید</a>
     </div>
+</div>
 
-    <div class="product">
-        <img src="https://product-images.therealreal.com/CRT115641_1_enlarged.jpg" alt="Elegant Ring">
-        <h3>حلقه لوکس</h3>
-        <a href="#" class="buy-btn">مشاهده و خرید</a>
-    </div>
-
-    <div class="product">
-        <img src="https://madisonavenuecouture.com/cdn/shop/files/TR-OT-240906-2-01.jpg" alt="Luxury Bag 2">
-        <h3>کیف هرمس</h3>
-        <a href="#" class="buy-btn">مشاهده و خرید</a>
-    </div>
-
-    <div class="product">
-        <img src="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/extension-ad-woman-LqjcsFEhbJlM9i2o6BHJcQCY82QMZ2" alt="Fashion Ad">
-        <h3>تبلیغات مد و فشن</h3>
-        <a href="#" class="buy-btn">مشاهده بیشتر</a>
-    </div>
-
-    <div class="product">
-        <img src="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/extension-ad-screenshot-NkiQQSov3gOHQFNYxC1MSGyCw96mMr" alt="Luxury Fashion">
-        <h3>کمپین تبلیغاتی مد</h3>
-        <a href="#" class="buy-btn">اطلاعات بیشتر</a>
-    </div>
-
-    <div class="product">
-        <img src="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/Share%20Banner/share_bag_1-KdhANsVytZI9J4h3LExhK6K3z7HFlX.png" alt="Share Banner">
-        <h3>اشتراک‌گذاری استایل</h3>
-        <a href="#" class="buy-btn">مشاهده جزئیات</a>
-    </div>
+<!-- فرم ارسال ایمیل -->
+<div class="email-form">
+    <h2>ارسال اطلاعات خرید</h2>
+    <form action="mailto:hamidrezamirhosseini@iran.ir" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="نام شما" required>
+        <input type="email" name="email" placeholder="ایمیل شما" required>
+        <textarea name="message" placeholder="جزئیات خرید یا کسب درآمد" required></textarea>
+        <button type="submit">ارسال</button>
+    </form>
 </div>
 
 </body>
