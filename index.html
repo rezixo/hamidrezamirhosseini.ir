@@ -3,167 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سامانه املاک | بهترین خرید و فروش املاک در ایران</title>
-  <meta name="description" content="سامانه املاک، بهترین راه‌حل برای خرید، فروش و اجاره املاک در ایران. تجربه‌ای متفاوت از جستجو و انتخاب ملک رویایی خود داشته باشید.">
+  <title>Luxury Collection | کالکشن لاکچری</title>
+  <meta name="description" content="کالکشن لاکچری - بهترین محصولات لوکس با قیمت مناسب. مشاهده و خرید آنلاین از برندهای معتبر.">
   <style>
-    /* Reset */
+    /* Reset and global styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     body {
-      font-family: 'Tahoma', sans-serif;
-      background-color: #f4f4f4;
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
       text-align: center;
       direction: rtl;
+      line-height: 1.6;
     }
     a {
-      text-decoration: none;
       color: inherit;
     }
     /* Navbar */
     nav {
-      background: #333;
-      color: #fff;
+      background: #000;
       padding: 10px 20px;
+      text-align: center;
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    nav ul li {
-      margin: 0 15px;
-    }
-    nav ul li a {
+    nav a {
       color: #fff;
-      font-weight: bold;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 16px;
       transition: color 0.3s;
     }
-    nav ul li a:hover {
+    nav a:hover {
       color: #ddd;
     }
-    /* Hero Banner */
-    .hero {
-      background: url('https://hamidrezamirhosseini.ir/assets/hero.jpg') no-repeat center center/cover;
+    header {
+      background-color: #000;
       color: #fff;
-      padding: 100px 20px;
+      padding: 20px 10px;
+      font-size: 28px;
     }
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-    }
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    }
-    .hero .btn {
-      background: #e74c3c;
-      color: #fff;
-      padding: 12px 30px;
-      border-radius: 5px;
-      font-size: 18px;
-      transition: background 0.3s;
-    }
-    .hero .btn:hover {
-      background: #c0392b;
-    }
-    /* Main Content - Property Cards */
+    /* Container for products */
     .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 30px 20px;
-      max-width: 1200px;
-      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
     }
-    .card {
+    .product {
       background: #fff;
+      margin: 15px;
+      padding: 10px;
+      width: 300px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       transition: transform 0.3s;
     }
-    .card:hover {
+    .product:hover {
       transform: translateY(-5px);
     }
-    .card img {
+    .product img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      height: auto;
+      border-radius: 10px;
     }
-    .card .content {
-      padding: 15px;
+    .product h3 {
+      font-size: 18px;
+      margin: 10px 0;
     }
-    .card h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .card p {
-      font-size: 16px;
-      color: #666;
-      margin-bottom: 15px;
-    }
-    .card .btn-group {
+    .btn-group {
       display: flex;
       justify-content: space-around;
-      margin-bottom: 10px;
+      margin-top: 10px;
     }
-    .card .btn-group a {
-      background: #333;
+    .btn {
+      text-decoration: none;
+      background: #000;
       color: #fff;
-      padding: 8px 12px;
+      padding: 10px;
       border-radius: 5px;
-      font-size: 14px;
+      width: 45%;
+      text-align: center;
       transition: background 0.3s;
     }
-    .card .btn-group a:hover {
-      background: #555;
+    .btn:hover {
+      background: #333;
     }
     /* Footer */
     footer {
-      background: #333;
+      background: #000;
       color: #fff;
-      padding: 20px;
+      padding: 15px;
       font-size: 14px;
-      margin-top: 30px;
+      margin-top: 20px;
     }
-    footer p {
-      margin-bottom: 10px;
-    }
-    footer a {
-      color: #fff;
-    }
-    /* Back to Top Button */
-    #backToTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #e74c3c;
-      color: #fff;
-      padding: 10px 15px;
-      border-radius: 50%;
-      font-size: 18px;
-      cursor: pointer;
-      display: none;
-      transition: background 0.3s;
-    }
-    #backToTop:hover {
-      background: #c0392b;
-    }
-    /* Responsive */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 28px;
+      .product {
+        width: 90%;
       }
-      .hero p {
-        font-size: 18px;
+      nav a {
+        margin: 0 10px;
+        font-size: 14px;
       }
     }
   </style>
@@ -172,97 +114,96 @@
 
 <!-- Navbar -->
 <nav>
-  <ul>
-    <li><a href="#hero">خانه</a></li>
-    <li><a href="#properties">املاک</a></li>
-    <li><a href="#about">درباره ما</a></li>
-    <li><a href="#contact">تماس</a></li>
-  </ul>
+  <a href="#home">خانه</a>
+  <a href="#products">محصولات</a>
+  <a href="#about">درباره ما</a>
+  <a href="#contact">تماس</a>
 </nav>
 
-<!-- Hero Banner -->
-<section class="hero" id="hero">
-  <h1>به سامانه املاک ما خوش آمدید</h1>
-  <p>امکان خرید، فروش و اجاره املاک با بهترین خدمات و به روزترین اطلاعات در اختیار شماست</p>
-  <a href="#properties" class="btn">مشاهده املاک</a>
-</section>
+<header id="home">🖤 Luxury Collection | کالکشن لاکچری 🖤</header>
 
-<!-- Main Content - Property Listings -->
-<section class="container" id="properties">
-  <!-- کارت نمونه ملک 1 -->
-  <div class="card">
-    <img src="https://hamidrezamirhosseini.ir/assets/property1.jpg" alt="ملک نمونه 1">
-    <div class="content">
-      <h3>ملک رویایی در تهران</h3>
-      <p>موقعیت عالی، امکانات کامل و قیمت مناسب</p>
-      <div class="btn-group">
-        <a href="https://hamidrezamirhosseini.ir/property1" target="_blank">مشاهده جزئیات</a>
-        <a href="https://hamidrezamirhosseini.ir/assets/property1.jpg" download>دانلود عکس</a>
-      </div>
+<div class="container" id="products">
+  <!-- محصول 1: کیف دستی لوکس -->
+  <div class="product">
+    <img src="https://media.neimanmarcus.com/f_auto,q_auto:low,ar_4:5,c_fill,dpr_2.0,w_790/01/nm_1718360_100106_m" alt="کیف دستی لوکس">
+    <h3>کیف دستی لوکس</h3>
+    <div class="btn-group">
+      <a href="https://www.neimanmarcus.com" class="btn" target="_blank">مشاهده و خرید</a>
+      <a href="https://media.neimanmarcus.com/f_auto,q_auto:low,ar_4:5,c_fill,dpr_2.0,w_790/01/nm_1718360_100106_m" class="btn" download>دانلود</a>
     </div>
   </div>
-  
-  <!-- کارت نمونه ملک 2 -->
-  <div class="card">
-    <img src="https://hamidrezamirhosseini.ir/assets/property2.jpg" alt="ملک نمونه 2">
-    <div class="content">
-      <h3>آپارتمان لوکس در شمال</h3>
-      <p>طراحی مدرن، ویوی زیبا و موقعیت استراتژیک</p>
-      <div class="btn-group">
-        <a href="https://hamidrezamirhosseini.ir/property2" target="_blank">مشاهده جزئیات</a>
-        <a href="https://hamidrezamirhosseini.ir/assets/property2.jpg" download>دانلود عکس</a>
-      </div>
-    </div>
-  </div>
-  
-  <!-- کارت نمونه ملک 3 -->
-  <div class="card">
-    <img src="https://hamidrezamirhosseini.ir/assets/property3.jpg" alt="ملک نمونه 3">
-    <div class="content">
-      <h3>خانه ویلایی در حومه</h3>
-      <p>فضای سبز، استخر خصوصی و امنیت بالا</p>
-      <div class="btn-group">
-        <a href="https://hamidrezamirhosseini.ir/property3" target="_blank">مشاهده جزئیات</a>
-        <a href="https://hamidrezamirhosseini.ir/assets/property3.jpg" download>دانلود عکس</a>
-      </div>
-    </div>
-  </div>
-  
-  <!-- کارت‌های بیشتر می‌توانند اضافه شوند -->
-</section>
 
-<!-- Footer -->
-<footer id="contact">
-  <p>© 2025 سامانه املاک. کلیه حقوق محفوظ است.</p>
+  <!-- محصول 2: جواهرات کارتیر -->
+  <div class="product">
+    <img src="https://www.cartier.com/dw/image/v2/BGTJ_PRD/on/demandware.static/-/Sites-cartier-master/default/dw1fe1d63b/images/large/e39f7697923d53ec8edcd3d44844a8a5.png" alt="جواهرات کارتیر">
+    <h3>جواهرات کارتیر</h3>
+    <div class="btn-group">
+      <a href="https://www.cartier.com" class="btn" target="_blank">مشاهده و خرید</a>
+      <a href="https://www.cartier.com/dw/image/v2/BGTJ_PRD/on/demandware.static/-/Sites-cartier-master/default/dw1fe1d63b/images/large/e39f7697923d53ec8edcd3d44844a8a5.png" class="btn" download>دانلود</a>
+    </div>
+  </div>
+
+  <!-- محصول 3: حلقه لوکس -->
+  <div class="product">
+    <img src="https://product-images.therealreal.com/CRT115641_1_enlarged.jpg" alt="حلقه لوکس">
+    <h3>حلقه لوکس</h3>
+    <div class="btn-group">
+      <a href="https://www.therealreal.com" class="btn" target="_blank">مشاهده و خرید</a>
+      <a href="https://product-images.therealreal.com/CRT115641_1_enlarged.jpg" class="btn" download>دانلود</a>
+    </div>
+  </div>
+
+  <!-- محصول 4: کیف هرمس -->
+  <div class="product">
+    <img src="https://madisonavenuecouture.com/cdn/shop/files/TR-OT-240906-2-01.jpg" alt="کیف هرمس">
+    <h3>کیف هرمس</h3>
+    <div class="btn-group">
+      <a href="https://madisonavenuecouture.com" class="btn" target="_blank">مشاهده و خرید</a>
+      <a href="https://madisonavenuecouture.com/cdn/shop/files/TR-OT-240906-2-01.jpg" class="btn" download>دانلود</a>
+    </div>
+  </div>
+
+  <!-- محصول 5: تبلیغات مد و فشن 1 -->  
+  <div class="product">
+    <img src="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/extension-ad-woman-LqjcsFEhbJlM9i2o6BHJcQCY82QMZ2" alt="تبلیغات مد و فشن 1">
+    <h3>تبلیغات مد و فشن</h3>
+    <div class="btn-group">
+      <a href="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/extension-ad-woman-LqjcsFEhbJlM9i2o6BHJcQCY82QMZ2" class="btn" target="_blank">مشاهده</a>
+      <a href="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/extension-ad-woman-LqjcsFEhbJlM9i2o6BHJcQCY82QMZ2" class="btn" download>دانلود</a>
+    </div>
+  </div>
+
+  <!-- محصول 6: تبلیغات مد و فشن 2 -->  
+  <div class="product">
+    <img src="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/extension-ad-screenshot-NkiQQSov3gOHQFNYxC1MSGyCw96mMr" alt="تبلیغات مد و فشن 2">
+    <h3>کمپین تبلیغاتی مد</h3>
+    <div class="btn-group">
+      <a href="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/extension-ad-screenshot-NkiQQSov3gOHQFNYxC1MSGyCw96mMr" class="btn" target="_blank">مشاهده</a>
+      <a href="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/extension-ad-screenshot-NkiQQSov3gOHQFNYxC1MSGyCw96mMr" class="btn" download>دانلود</a>
+    </div>
+  </div>
+
+  <!-- محصول 7: اشتراک‌گذاری استایل -->  
+  <div class="product">
+    <img src="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/Share%20Banner/share_bag_1-KdhANsVytZI9J4h3LExhK6K3z7HFlX.png" alt="اشتراک‌گذاری استایل">
+    <h3>اشتراک‌گذاری استایل</h3>
+    <div class="btn-group">
+      <a href="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/Share%20Banner/share_bag_1-KdhANsVytZI9J4h3LExhK6K3z7HFlX.png" class="btn" target="_blank">مشاهده</a>
+      <a href="https://zbypaa9oazexo3ul.public.blob.vercel-storage.com/Share%20Banner/share_bag_1-KdhANsVytZI9J4h3LExhK6K3z7HFlX.png" class="btn" download>دانلود</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer --> 
+<footer>
+  <p>© 2025 Luxury Collection. کلیه حقوق محفوظ است.</p>
   <p>
-    <a href="#hero">خانه</a> | 
-    <a href="#properties">املاک</a> | 
-    <a href="#about">درباره ما</a> | 
-    <a href="#contact">تماس</a>
+    <a href="#home" style="color: #fff; text-decoration: none;">خانه</a> | 
+    <a href="#products" style="color: #fff; text-decoration: none;">محصولات</a> | 
+    <a href="#about" style="color: #fff; text-decoration: none;">درباره ما</a> | 
+    <a href="#contact" style="color: #fff; text-decoration: none;">تماس</a>
   </p>
-  <p>تماس: 021-888881772 | 09120802196</p>
 </footer>
-
-<!-- Back to Top Button -->
-<div id="backToTop" onclick="scrollToTop()">↑</div>
-
-<script>
-  // نمایش دکمه بازگشت به بالا زمانی که صفحه به پایین اسکرول شد
-  window.onscroll = function() {toggleBackToTop()};
-  
-  function toggleBackToTop() {
-    const btn = document.getElementById('backToTop');
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-      btn.style.display = 'block';
-    } else {
-      btn.style.display = 'none';
-    }
-  }
-  
-  function scrollToTop() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  }
-</script>
 
 </body>
 </html>
