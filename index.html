@@ -140,6 +140,104 @@
       }
     }
   </script>
+  <button onclick="saveCode()">Save Code</button>
 
+  <script>
+    function saveCode() {
+      var html = document.getElementById('htmlCode').value;
+      var css = document.getElementById('cssCode').value;
+      var js = document.getElementById('jsCode').value;
+  
+      // Save to localStorage (or backend API)
+      localStorage.setItem('htmlCode', html);
+      localStorage.setItem('cssCode', css);
+      localStorage.setItem('jsCode', js);
+  
+      alert('Code saved successfully!');
+    }
+  
+    // On page load, check if there is saved code and load it
+    window.onload = function() {
+      if (localStorage.getItem('htmlCode')) {
+        document.getElementById('htmlCode').value = localStorage.getItem('htmlCode');
+      }
+      if (localStorage.getItem('cssCode')) {
+        document.getElementById('cssCode').value = localStorage.getItem('cssCode');
+      }
+      if (localStorage.getItem('jsCode')) {
+        document.getElementById('jsCode').value = localStorage.getItem('jsCode');
+      }
+    };
+  </script>
+  <button onclick="downloadCode()">Download Code</button>
+
+  <script>
+    function downloadCode() {
+      var html = document.getElementById('htmlCode').value;
+      var css = document.getElementById('cssCode').value;
+      var js = document.getElementById('jsCode').value;
+  
+      // Download HTML file
+      var htmlBlob = new Blob([html], { type: 'text/html' });
+      var htmlLink = document.createElement('a');
+      htmlLink.href = URL.createObjectURL(htmlBlob);
+      htmlLink.download = 'index.html';
+      htmlLink.click();
+  
+      // Download CSS file
+      var cssBlob = new Blob([css], { type: 'text/css' });
+      var cssLink = document.createElement('a');
+      cssLink.href = URL.createObjectURL(cssBlob);
+      cssLink.download = 'style.css';
+      cssLink.click();
+  
+      // Download JS file
+      var jsBlob = new Blob([js], { type: 'application/javascript' });
+      var jsLink = document.createElement('a');
+      jsLink.href = URL.createObjectURL(jsBlob);
+      jsLink.download = 'script.js';
+      jsLink.click();
+    }
+  </script>
+  <div class="info">
+    <p>HTML Lines: <span id="htmlLines">0</span>, CSS Lines: <span id="cssLines">0</span>, JavaScript Lines: <span id="jsLines">0</span></p>
+  </div>
+  
+  <script>
+    function updateLineCount() {
+      document.getElementById('htmlLines').textContent = document.getElementById('htmlCode').value.split('\n').length;
+      document.getElementById('cssLines').textContent = document.getElementById('cssCode').value.split('\n').length;
+      document.getElementById('jsLines').textContent = document.getElementById('jsCode').value.split('\n').length;
+    }
+  
+    // Update line count on input change
+    document.getElementById('htmlCode').addEventListener('input', updateLineCount);
+    document.getElementById('cssCode').addEventListener('input', updateLineCount);
+    document.getElementById('jsCode').addEventListener('input', updateLineCount);
+  </script>
+  <button onclick="clearCode()">Clear All Code</button>
+
+  <script>
+    function clearCode() {
+      document.getElementById('htmlCode').value = '';
+      document.getElementById('cssCode').value = '';
+      document.getElementById('jsCode').value = '';
+      updateLineCount();  // Update line count after clearing code
+    }
+  </script>
+  <button onclick="shareCode()">Share Code</button>
+
+  <script>
+    function shareCode() {
+      var html = encodeURIComponent(document.getElementById('htmlCode').value);
+      var css = encodeURIComponent(document.getElementById('cssCode').value);
+      var js = encodeURIComponent(document.getElementById('jsCode').value);
+  
+      var link = '/share?html=' + html + '&css=' + css + '&js=' + js;
+      alert('Your code is shared! Share this link: ' + link);
+    }
+  </script>
+    
+  
 </body>
 </html>
