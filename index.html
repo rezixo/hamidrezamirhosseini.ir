@@ -109,6 +109,8 @@
   </div>
 
   <div class="console" id="console"></div>
+  <button onclick="saveCode()">Save Code to GitHub</button>
+
 
   <script>
     function previewCode() {
@@ -143,10 +145,61 @@
   <button onclick="saveCode()">Save Code</button>
 
   <script>
+    function saveCodeToGitHub(html, css, js) {
+  var token = 'your_github_token';  // Personal Access Token شما
+  var repoOwner = 'your_github_username';
+  var repoName = 'your_repository_name';
+  
+  // URL برای ارسال درخواست به GitHub API
+  var apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/`;
+  
+  // اطلاعات فایل‌ها
+  var files = [
+    { name: 'index.html', content: html },
+    { name: 'style.css', content: css },
+    { name: 'script.js', content: js },
+  ];
+
+  // ارسال درخواست برای هر فایل
+  files.forEach(function(file) {
+    var data = {
+      message: 'Add or update code file',
+      content: btoa(file.content), // محتوای فایل به Base64 تبدیل می‌شود
+      committer: {
+        name: 'Your Name',
+        email: 'your_email@example.com',
+      }
+    };
+
+    // ارسال درخواست به GitHub API
+    fetch(apiUrl + file.name, {
+      method: 'PUT',
+      headers: {
+        'Authorization': 'token ' + token,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.commit) {
+        alert('Code saved to GitHub successfully!');
+      } else {
+        alert('Error saving code to GitHub');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  });
+}
+
     function saveCode() {
       var html = document.getElementById('htmlCode').value;
       var css = document.getElementById('cssCode').value;
       var js = document.getElementById('jsCode').value;
+      // ذخیره کدها در GitHub
+      saveCodeToGitHub(html, css, js);
   
       // Save to localStorage (or backend API)
       localStorage.setItem('htmlCode', html);
