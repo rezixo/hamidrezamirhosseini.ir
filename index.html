@@ -97,11 +97,12 @@
       var html = document.getElementById('htmlCode').value;
       var css = document.getElementById('cssCode').value;
       var iframe = document.getElementById('previewFrame');
-      var document = iframe.contentDocument || iframe.contentWindow.document;
-      document.open();
-      document.write(html);
-      document.write('<style>' + css + '</style>');
-      document.close();
+
+      var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+      iframeDoc.open();
+      iframeDoc.write('<html><head><style>' + css + '</style></head><body>' + html + '</body></html>');
+      iframeDoc.close();
     }
   </script>
 
