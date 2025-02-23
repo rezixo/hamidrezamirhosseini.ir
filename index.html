@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,6 +45,38 @@
       background-color: #f8f8f8;
       padding: 10px;
     }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .preview-btn { background-color: #007bff; }
+    .preview-btn:hover { background-color: #0056b3; }
+
+    .download-btn { background-color: #28a745; }
+    .download-btn:hover { background-color: #1e7e34; }
+
+    .clear-btn { background-color: #dc3545; }
+    .clear-btn:hover { background-color: #b02a37; }
+
+    .share-btn { background-color: #ff9800; }
+    .share-btn:hover { background-color: #e68900; }
+
+    .info {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #555;
+    }
     .output {
       width: 100%;
       margin-top: 20px;
@@ -53,32 +85,6 @@
       background-color: #fff;
       min-height: 200px;
       border-radius: 5px;
-    }
-    button {
-      padding: 10px 20px;
-      margin-top: 20px;
-      background-color: #000;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    button:hover {
-      background-color: #333;
-    }
-    .console {
-      width: 100%;
-      margin-top: 20px;
-      padding: 10px;
-      background-color: #fff;
-      min-height: 100px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-family: monospace;
-      color: red;
-      white-space: pre-wrap;
-      overflow-y: auto;
     }
   </style>
 </head>
@@ -101,14 +107,21 @@
     </div>
   </div>
 
-  <button onclick="previewCode()">View Preview</button>
+  <div class="buttons">
+    <button class="preview-btn" onclick="previewCode()">View Preview</button>
+    <button class="download-btn" onclick="downloadCode()">Download Code</button>
+    <button class="clear-btn" onclick="clearCode()">Clear All Code</button>
+    <button class="share-btn" onclick="shareCode()">Share Code</button>
+  </div>
+
+  <div class="info">
+    <p>HTML Lines: <span id="htmlLines">0</span>, CSS Lines: <span id="cssLines">0</span>, JavaScript Lines: <span id="jsLines">0</span></p>
+  </div>
 
   <div class="output" id="output">
     <h3>Code Preview</h3>
     <iframe id="previewFrame" style="width: 100%; height: 400px; border: none;"></iframe>
   </div>
-
-  <div class="console" id="console"></div>
 
   <script>
     function previewCode() {
@@ -116,101 +129,56 @@
       var css = document.getElementById('cssCode').value;
       var js = document.getElementById('jsCode').value;
       var iframe = document.getElementById('previewFrame');
-      var consoleDiv = document.getElementById('console');
 
-      // Clear previous console output
-      consoleDiv.textContent = '';
-
-      try {
-        // Making sure the iframe is correctly getting the document
-        var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-
-        // Open, write content, and close the iframe document
-        iframeDoc.open();
-        iframeDoc.write('<html><head><style>' + css + '</style></head><body>' + html + '</body></html>');
-        iframeDoc.close();
-
-        // Evaluate JavaScript
-        var script = iframeDoc.createElement('script');
-        script.textContent = js;
-        iframeDoc.body.appendChild(script);
-      } catch (error) {
-        // Show error in the console
-        consoleDiv.textContent = 'Error: ' + error.message;
-      }
+      // Open, write content, and close the iframe document
+      var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+      iframeDoc.open();
+      iframeDoc.write('<html><head><style>' + css + '</style></head><body>' + html + '<script>' + js + '<\/script></body></html>');
+      iframeDoc.close();
     }
-  </script>
 
-  <button onclick="downloadCode()">Download Code</button>
-
-  <script>
     function downloadCode() {
       var html = document.getElementById('htmlCode').value;
       var css = document.getElementById('cssCode').value;
       var js = document.getElementById('jsCode').value;
   
-      // Download HTML file
-      var htmlBlob = new Blob([html], { type: 'text/html' });
-      var htmlLink = document.createElement('a');
-      htmlLink.href = URL.createObjectURL(htmlBlob);
-      htmlLink.download = 'index.html';
-      htmlLink.click();
-  
-      // Download CSS file
-      var cssBlob = new Blob([css], { type: 'text/css' });
-      var cssLink = document.createElement('a');
-      cssLink.href = URL.createObjectURL(cssBlob);
-      cssLink.download = 'style.css';
-      cssLink.click();
-  
-      // Download JS file
-      var jsBlob = new Blob([js], { type: 'application/javascript' });
-      var jsLink = document.createElement('a');
-      jsLink.href = URL.createObjectURL(jsBlob);
-      jsLink.download = 'script.js';
-      jsLink.click();
+      function downloadFile(content, fileName, mimeType) {
+        var blob = new Blob([content], { type: mimeType });
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = fileName;
+        link.click();
+      }
+
+      downloadFile(html, 'index.html', 'text/html');
+      downloadFile(css, 'style.css', 'text/css');
+      downloadFile(js, 'script.js', 'application/javascript');
     }
-  </script>
-  
-  <div class="info">
-    <p>HTML Lines: <span id="htmlLines">0</span>, CSS Lines: <span id="cssLines">0</span>, JavaScript Lines: <span id="jsLines">0</span></p>
-  </div>
-  
-  <script>
+
+    function clearCode() {
+      document.getElementById('htmlCode').value = '';
+      document.getElementById('cssCode').value = '';
+      document.getElementById('jsCode').value = '';
+      updateLineCount();
+    }
+
+    function shareCode() {
+      var html = encodeURIComponent(document.getElementById('htmlCode').value);
+      var css = encodeURIComponent(document.getElementById('cssCode').value);
+      var js = encodeURIComponent(document.getElementById('jsCode').value);
+      var link = '/share?html=' + html + '&css=' + css + '&js=' + js;
+      alert('Your code is shared! Share this link: ' + link);
+    }
+
     function updateLineCount() {
       document.getElementById('htmlLines').textContent = document.getElementById('htmlCode').value.split('\n').length;
       document.getElementById('cssLines').textContent = document.getElementById('cssCode').value.split('\n').length;
       document.getElementById('jsLines').textContent = document.getElementById('jsCode').value.split('\n').length;
     }
-  
-    // Update line count on input change
+
     document.getElementById('htmlCode').addEventListener('input', updateLineCount);
     document.getElementById('cssCode').addEventListener('input', updateLineCount);
     document.getElementById('jsCode').addEventListener('input', updateLineCount);
-  </script>
-  
-  <button onclick="clearCode()">Clear All Code</button>
-
-  <script>
-    function clearCode() {
-      document.getElementById('htmlCode').value = '';
-      document.getElementById('cssCode').value = '';
-      document.getElementById('jsCode').value = '';
-      updateLineCount();  // Update line count after clearing code
-    }
-  </script>
-
-  <button onclick="shareCode()">Share Code</button>
-
-  <script>
-    function shareCode() {
-      var html = encodeURIComponent(document.getElementById('htmlCode').value);
-      var css = encodeURIComponent(document.getElementById('cssCode').value);
-      var js = encodeURIComponent(document.getElementById('jsCode').value);
-  
-      var link = '/share?html=' + html + '&css=' + css + '&js=' + js;
-      alert('Your code is shared! Share this link: ' + link);
-    }
   </script>
 
 </body>
