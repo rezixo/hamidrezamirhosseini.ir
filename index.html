@@ -1,166 +1,30 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لیست قیمت محصولات</title>
+    <title>iryzd</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            direction: rtl;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-            color: #444;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-        h1 {
-            text-align: center;
-            margin-top: 30px;
-            color: #2c3e50;
-            font-size: 2.5em;
-        }
-        .category {
-            background-color: #3498db;
-            color: #fff;
-            padding: 12px;
-            margin-top: 20px;
-            border-radius: 5px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-        .product-list {
-            margin-top: 10px;
-        }
-        .product-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            margin-bottom: 8px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .product-item:last-child {
-            margin-bottom: 0;
-        }
-        .product-item span {
-            font-size: 1em;
-        }
-        .product-item span:first-child {
-            color: #2c3e50;
-        }
-        .product-item span:last-child {
-            color: #e74c3c;
-            font-weight: bold;
-        }
-        .product-list .product-item:hover {
-            background-color: #ecf0f1;
-            cursor: pointer;
-        }
-        .category:hover {
-            background-color: #2980b9;
-        }
+    .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+    }
+    
+    .video-background iframe {
+        width: 100%;
+        height: 100%;
+    }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>لیست قیمت محصولات</h1>
-
-
-        <!-- زغال -->
-        <div class="category">زغال</div>
-        <div class="product-list">
-            <div class="product-item"><span>زغال کبابی ۱۲۰۰ گرمی</span><span>۶۴,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>زغال کبابی پاپیروس</span><span>۸۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>زغال قلیونی کیلویی</span><span>۱۲۰,۰۰۰ تومان</span></div>
-        </div>
-
-        <!-- اسپند -->
-        <div class="category">اسپند</div>
-        <div class="product-list">
-            <div class="product-item"><span>اسپند بزرگ</span><span>۲۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>اسپند کوچک</span><span>۱۵,۰۰۰ تومان</span></div>
-        </div>
-
-        <!-- شکر و نبات -->
-        <div class="category">شکر و نبات</div>
-        <div class="product-list">
-            <div class="product-item"><span>شکر کیلویی</span><span>۵۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>نبات کاسه کیلویی</span><span>۶۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>نبات پرده کیلویی</span><span>۱۱۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>قند کیلویی</span><span>۶۵,۰۰۰ تومان</span></div>
-        </div>
-
-        <!-- سوسیس و هات داگ -->
-        <div class="category">سوسیس و هات داگ</div>
-        <div class="product-list">
-            <div class="product-item"><span>سوسیس کوکتل</span><span>۲۹۷,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>سوسیس باربیکیو ۹۰ درصد کیلویی</span><span>۴۷۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>هات داگ پنیری بسته‌ای</span><span>۱۲۷,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>شنسل مرغ کیلویی</span><span>۱۸۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>سوسیس آلمانی کیلویی</span><span>۱۷۲,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>کوکتل ۷۰ درصد کیلویی</span><span>۲۹۸,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>هات داگ پنیری کیلویی</span><span>۲۷۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>سوسیس باربی کیو ۹۰ درصد کیلویی</span><span>۴۷۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>هات داگ هلندی کیلویی</span><span>۱۳۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>سوسیس کوکتل رویال قرمز ۸۰ درصد کیلویی</span><span>۳۰۹,۰۰۰ تومان</span></div>
-        </div>
-
-        <!-- گردو و خرما -->
-        <div class="category">گردو و خرما</div>
-        <div class="product-list">
-            <div class="product-item"><span>گردو کیلویی</span><span>۳۷۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>بادام کیلویی</span><span>۱۶۵,۰۰۰ تومان</span></div>
-            
-
-
-            <div class="product-item"><span>خرما زاهدی کیلویی</span><span>۱۴۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>رطب کیلویی</span><span>۲۴۰,۰۰۰ تومان</span></div>
-        </div>
-
-        <!-- محصولات مصرفی -->
-        <div class="category">محصولات مصرفی</div>
-        <div class="product-list">
-            <div class="product-item"><span>ژل آتشزای بزرگ</span><span>۴۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>ژل آتشزای کوچک</span><span>۲۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>ماست کوچک</span><span>۳۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>ماست متوسط</span><span>۶۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>ماست بزرگ</span><span>۸۵,۰۰۰ تومان</span></div>
-        </div>
-
-        <!-- لامپ و لوازم روشنایی -->
-        <div class="category">لامپ و لوازم روشنایی</div>
-        <div class="product-list">
-            <div class="product-item"><span>لامپ ال ای دی ۱۲ وات</span><span>۷۲,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>لامپ ال ای دی ۹ وات</span><span>۶۳,۰۰۰ تومان</span></div>
-        </div>
-
-        <!-- لوازم خانگی و مصرفی -->
-        <div class="category">لوازم خانگی و مصرفی</div>
-        <div class="product-list">
-            <div class="product-item"><span>گودی اصلی</span><span>۱۹,۵۰۰ تومان</span></div>
-            <div class="product-item"><span>گودی غیر اصلی</span><span>۱۶,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>چسب قطره کوچک</span><span>۱۲,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>نوار چسب شیشه‌ای کوچک</span><span>۱۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>نوار چسب برق</span><span>۱۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>چسب دوقلوی غفاری</span><span>۷۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>گاز فندک جوکر</span><span>۳۴,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>چسب زخم پاندا</span><span>۷,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>خمیر دندان دورکو ۷۰ گرمی</span><span>۳۳,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>وازلین معمولی</span><span>۲۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>وازلین بهداشتی</span><span>۴۲,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>سیم ظرفشویی</span><span>۲۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>اسکاج خورشیدی</span><span>۲۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>خودکار</span><span>۷,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>گوش پاک کن</span><span>۲۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>سلفون غذا ۱۰ متری</span><span>۳۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>ژیلت دورکو</span><span>۳۸,۰۰۰ تومان</span></div>
-        </div>
+    <div class="video-background">
+        <iframe src="لینک_پخش_زنده" frameborder="0" allowfullscreen></iframe>
     </div>
+    
 </body>
 </html>
