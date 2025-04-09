@@ -1,156 +1,113 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لیست قیمت محصولات</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            direction: rtl;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-            color: #444;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-        h1 {
-            text-align: center;
-            margin-top: 30px;
-            color: #b50303;
-            font-size: 2.5em;
-        }
-        .product-list {
-            margin-top: 10px;
-        }
-        .product-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px;
-            background-color: #ddc8d8d1;
-            border: 1px solid #b68787;
-            margin-bottom: 8px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .product-item:last-child {
-            margin-bottom: 0;
-        }
-        .product-item span {
-            font-size: 1em;
-        }
-        .product-item span:first-child {
-            color: #0c1c0c;
-        }
-        .product-item span:last-child {
-            color: #ff0000;
-            font-weight: bold;
-        }
-        .product-list .product-item:hover {
-            background-color: #ecf0f1;
-            cursor: pointer;
-        }
-        .category:hover {
-            background-color: #2980b9;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خبرگزاری حمیدرضا میرحسینی</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #222;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background: #444;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    article {
+      margin-bottom: 2rem;
+    }
+    iframe, img, audio {
+      max-width: 100%;
+      margin-top: 1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #eee;
+      font-size: 0.9rem;
+    }
+    .support-button {
+      display: inline-block;
+      margin-top: 2rem;
+    }
+    .contact-info {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .contact-info a {
+      color: #222;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
+  <header>
+    <h1>خبرگزاری حمیدرضا میرحسینی</h1>
+  </header>
+  <nav>
+    <a href="#">خانه</a>
+    <a href="#">اقتصاد</a>
+    <a href="#">فناوری</a>
+    <a href="#">تماس با ما</a>
+  </nav>
+  <div class="container">
+    <article>
+      <h2>عنوان خبر اول</h2>
+      <p>متن کوتاهی از خبر به همراه اطلاعات مفید و مهم در این بخش قرار می‌گیرد.</p>
+      <img src="https://via.placeholder.com/800x400" alt="عکس خبر">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="ویدیو خبر" allowfullscreen></iframe>
+      <audio controls>
+        <source src="sample.mp3" type="audio/mpeg">
+        مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+      </audio>
+    </article>
 
-        <h1>لیست قیمت محصولات</h1>
-        <div class="product-list">
-            <div class="product-item"><span>زغال کبابی ۱۲۰۰ گرمی</span><span>۶۴,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>زغال کبابی پاپیروس</span><span>۸۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>زغال قلیونی کیلویی</span><span>۱۲۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>سیگار وینستون آبی و نقره ای</span><span>۵۰,۰۰۰ تومان</span></div>
+    <article>
+      <h2>عنوان خبر دوم</h2>
+      <p>در اینجا می‌توانید خبر دوم را با جزئیات بیشتری بنویسید و رسانه‌های مختلفی به آن اضافه کنید.</p>
+      <iframe src="https://soundcloud.com/" width="100%" height="166" frameborder="no" scrolling="no"></iframe>
+    </article>
 
-        </div>
-
-        <div class="product-list">
-            <div class="product-item"><span>اسپند بزرگ</span><span>۲۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>اسپند کوچک</span><span>۱۵,۰۰۰ تومان</span></div>
-        </div>
-
-        <div class="product-list">
-            <div class="product-item"><span>شکر کیلویی</span><span>۶۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>نبات کاسه کیلویی</span><span>۷۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>نبات پرده کیلویی</span><span>۱۱۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>قند کیلویی</span><span>۷۵,۰۰۰ تومان</span></div>
-        </div>
-
-        <div class="product-list">
-            <div class="product-item"><span>سوسیس کوکتل</span><span>۲۹۷,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>سوسیس باربیکیو ۹۰ درصد کیلویی</span><span>۴۷۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>هات داگ پنیری بسته‌ای</span><span>۱۲۷,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>شنیسل مرغ</span><span>۱۸۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>سوسیس آلمانی کیلویی</span><span>۱۷۲,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>کوکتل ۷۰ درصد کیلویی</span><span>۲۹۸,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>هات داگ پنیری کیلویی</span><span>۲۷۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>سوسیس باربی کیو ۹۰ درصد کیلویی</span><span>۴۷۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>هات داگ هلندی کیلویی</span><span>۱۳۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>سوسیس کوکتل رویال قرمز ۸۰ درصد کیلویی</span><span>۳۰۹,۰۰۰ تومان</span></div>
-        </div>
-
-        <div class="product-list">
-            <div class="product-item"><span>گردو کیلویی</span><span>۳۷۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>بادام کیلویی</span><span>۱۶۵,۰۰۰ تومان</span></div>
-            
-
-
-            <div class="product-item"><span>خرما زاهدی کیلویی</span><span>۱۴۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>رطب کیلویی</span><span>۲۴۰,۰۰۰ تومان</span></div>
-        </div>
-
-        <div class="product-list">
-            <div class="product-item"><span>ژل آتشزای بزرگ</span><span>۴۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>ژل آتشزای کوچک</span><span>۲۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>ماست کوچک</span><span>۳۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>ماست متوسط</span><span>۶۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>ماست بزرگ</span><span>۸۵,۰۰۰ تومان</span></div>
-        </div>
-
-        <div class="product-list">
-            <div class="product-item"><span>لامپ ال ای دی ۱۲ وات</span><span>۷۲,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>لامپ ال ای دی ۹ وات</span><span>۶۳,۰۰۰ تومان</span></div>
-        </div>
-
-        <div class="product-list">
-            <div class="product-item"><span>چسب قطره کوچک</span><span>۱۲,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>نوار چسب شیشه‌ای کوچک</span><span>۱۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>نوار چسب برق</span><span>۱۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>چسب دوقلوی غفاری</span><span>۷۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>گاز فندک جوکر</span><span>۳۴,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>چسب زخم پاندا</span><span>۷,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>خمیر دندان دورکو ۷۰ گرمی</span><span>۳۳,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>وازلین معمولی</span><span>۲۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>وازلین بهداشتی</span><span>۴۲,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>سیم ظرفشویی</span><span>۲۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>اسکاج خورشیدی</span><span>۲۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>خودکار</span><span>۷,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>گوش پاک کن</span><span>۲۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>سلفون غذا ۱۰ متری</span><span>۳۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>ژیلت دورکو</span><span>۳۸,۰۰۰ تومان</span></div>
-        </div>
-
-        <div class="product-list">
-            <div class="product-item"><span>زعفران نیم گرمی</span><span>۱۰۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>زعفران یک گرمی</span><span>۲۰۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>هایپ خارجی</span><span>۹۰,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>گودی اصلی</span><span>۱۹,۵۰۰ تومان</span></div>
-            <div class="product-item"><span>گودی غیر اصلی</span><span>۱۶,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>شانی خارجی</span><span>۵۵,۰۰۰ تومان</span></div>
-            <div class="product-item"><span>نان خشک</span><span>۱۷۰,۰۰۰ تومان</span></div>
-
-
-
-
-
-
-
+    <div class="support-button">
+      <a href="https://hamibash.com/hamidreza" target="_blank">
+        <img src="https://cdn.hamibash.com/buttons/support_me_black.png" alt="از من حمایت کن" width="200">
+      </a>
     </div>
+
+    <div class="contact-info">
+      <p>برای تماس با من، می‌توانید از ایمیل یا شماره تماس زیر استفاده کنید:</p>
+      <p><a href="mailto:hamidrezamirhosseini@icloud.com">hamidrezamirhosseini@icloud.com</a></p>
+      <p><a href="tel:+989138515296">+989138515296</a></p>
+    </div>
+  </div>
+  <footer>
+    © 2025 خبرگزاری شخصی حمیدرضا میرحسینی | تمامی حقوق محفوظ است.
+  </footer>
 </body>
 </html>
